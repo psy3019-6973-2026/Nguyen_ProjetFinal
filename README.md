@@ -12,7 +12,7 @@ Plusieurs modèles de comparaisons ont étés effectués (KNN, Régression logis
 ## Intérêt personnel
 Je suis tout d'abord intéresser à apprendre à entraîner des modèles de classificateur, élément beaucoup mentionné durant mon parcours au baccalauréat mais dont je n'ai malheureusement pas eu la chance d'appliquer pratiquement. 
 
-De plus, le TDAH est un sujet qui m'intéresse puisqu'il m'affecte personnellement (je suis TDA) et il semble également être un souci au niveau de la santé publique au Québec. 
+De plus, le TDAH est un sujet qui m'intéresse puisqu'il m'affecte personnellement et il semble également être un souci au niveau de la santé publique au Québec. 
 
 [Faits saillants:](https://www.lapresse.ca/actualites/sante/telemedecine/60-minutes-pour-un-diagnostic-de-tdah/2024-11-20/il-risque-d-y-avoir-une-perte-de-precision-dans-le-diagnostic.php)
 - Autour de 14 % des Québécois de 10 à 17 ans consommaient des psychostimulants spécifiques au TDAH en 2017. (ce qu'on devrait observer: 2-5 %)
