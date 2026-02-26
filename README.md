@@ -6,7 +6,7 @@ Entrainer des modèles de classifications sur des données IRMf pour prédire de
 
 Le projet initial est effectué avec une base de données accessible avec Nilearn, le Nitric ADHD resting-state. L'auteure a seulement utilisé un sous-ensemble de la base de données (30 participants, 13 ADHD, 17 contrôle) et celui-ci est déjà pré-processed.
 
-Données phénotypiques: status diagnostic, mesures de symptômes TDAH, âge, sexe, quotient intellectuel et status de médication
+Données phénotypiques: statut diagnostic, mesures de symptômes TDAH, âge, sexe, quotient intellectuel et status de médication
 
 Plusieurs modèles de comparaisons ont étés effectués (KNN, Régression logistique, Arbre de décision, Random Forest, Machine à vecteurs de support (SVM) et XGBoost) et leur performance ont été évalué par F1 score, accuracy et matrices de confusions.
 
