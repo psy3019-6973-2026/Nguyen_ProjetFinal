@@ -44,15 +44,18 @@ Le dataset disponible sur Nilearn est en fait un sous-ensemble d'un plus gros da
 1. Consulter l'article original portant sur la base de données + comprendre sa structure
 2. Sélectionner l'initiative (quel sous-ensemble de données de la section ADHD200 Prepoc Athena) -> critères: accessible, stockable, utilisable
 3. Documenter la structure des données (si nécessaire)
-4. Répliquer le projet initial + documenter les changements nécessaires
+4. Répliquer le projet initial + documenter les changements nécessaires et les difficultés rencontrées
 
-*Si cette tâche s'avère plus demandante que prévue (excède 10h de travail, je vais entraîner moins de modèles de classificateur que le projet initial.*
+*Si cette tâche s'avère plus demandante que prévue (excède 10h de travail), je vais entraîner moins de modèles de classificateur que le projet initial.*
 
 
 ### Tâche 3: Ajouter une visualisation pertinente des résultats
-Avec la nouvelle base de données qui est beaucoup plus grande, 
+Les visualisations exactes seront déterminées après la complétion de la tâche 2, mais voici quelques options que je considère:
+- Réplication des graphiques originaux (mais avec la nouvelle base de données) + améliorations si possible (clareté, accessibilité)
+- Différences des résultats entre la réplication du projet initial avec base de données Nilearn et la nouvelle base de données
+- Évaluation de la performance (ajout de critères différents que projet original)
 
-explorer de nouvelles visualisation et de façon d'évaluer la performance
+*Selon la charge de travail, la quantité de visualisation et la sélection dans les options présentées ci-dessus seront variables*
 
-Ajouter une visualisation pertinente des résultats —> avec la nouvelle base de données qui est plus grande, refaire les graphiques présentées + proposer d’autres visualisations pertinentes qui n’étaient pas possible avec le base de données nilearn
-Ou utiliser des classifiers différents
+### En cas de surcharge de travail global:
+Seulement les tâches 1 et 2 seront effectués (des visualisations avec une charge de travail insuffisante pour être considérée une tâche complète seront quand même incluse dans la tâche 2 afin de visualiser les résultats)
