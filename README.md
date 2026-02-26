@@ -14,12 +14,10 @@ Je suis tout d'abord intéresser à apprendre à entraîner des modèles de clas
 
 De plus, le TDAH est un sujet qui m'intéresse puisqu'il m'affecte personnellement (je suis TDA) et il semble également être un souci au niveau de la santé publique au Québec. 
 
-**Faits saillants:**
+[Faits saillants:](https://www.lapresse.ca/actualites/sante/telemedecine/60-minutes-pour-un-diagnostic-de-tdah/2024-11-20/il-risque-d-y-avoir-une-perte-de-precision-dans-le-diagnostic.php)
 - Autour de 14 % des Québécois de 10 à 17 ans consommaient des psychostimulants spécifiques au TDAH en 2017. (ce qu'on devrait observer: 2-5 %)
 - Prévalence du TDAH chez les Québécois de moins de 25 ans: 6,4 % VS 2,4 % chez les autres jeunes Canadiens.
 - Une évaluation neuropsychologique requiert généralement de quatre à huit heures d’entretiens, en une ou plusieurs séances MAIS plusieurs ont eu leur diagnostic en une rencontre virtuelle de 60 minutes. --> risque de perte de précision dans le diagnostic
-
-*[Article de journal pour les intéressés](https://www.lapresse.ca/actualites/sante/telemedecine/60-minutes-pour-un-diagnostic-de-tdah/2024-11-20/il-risque-d-y-avoir-une-perte-de-precision-dans-le-diagnostic.php)*
 
 Dans un système de santé où il semble avoir un manque perpetuel de temps et de ressource, une méthode quantitative robuste et qui serait probablement plus rapide qu'une consultation en neuropsychologie serait intéressante pour complémenter l'application actuelle dans l'évaluation de TDAH. 
 
