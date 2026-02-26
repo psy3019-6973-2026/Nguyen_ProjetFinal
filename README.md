@@ -34,15 +34,20 @@ Je vais donc tenter de refaire le projet, mais avec l'entierté de la base de do
 - Vérification de la reproductibilité (points forts et points faibles)
 - Différences du processus et des résultats avec les 10 nouveaux participants
 
+
 ### Tâche 2: Adapter une analyse existante à un jeu de données ouvert différent
 Après avoir assuré du bon fonctionnement du code et apporté les modifications nécessaires, je vais tenter d'entraîner des modèles de classificateurs sur un plus grand ensemble de données. 
 
+Le dataset disponible sur Nilearn est en fait un sous-ensemble d'un plus gros dataset, le ADHD200. Dans le cadre d'un concours d'identification de bio-marqueurs du TDAH, plusieurs instituts de neuro-imageries se sont rassemblés pour pre-process le ADHD200 et le résultat de cet effort collectif est [téléchargable](https://www.nitrc.org/frs/?group_id=383). 
+
+Étapes:
+1. Consulter l'article original portant sur la base de données + comprendre sa structure
+2. Sélectionner l'initiative (quel sous-ensemble de données de la section ADHD200 Prepoc Athena) -> critères: accessible, stockable, utilisable
+3. Documenter la structure des données (si nécessaire)
+4. Répliquer le projet initial + documenter les changements nécessaires
+
 *Si cette tâche s'avère plus demandante que prévue (excède 10h de travail, je vais entraîner moins de modèles de classificateur que le projet initial.*
 
-
-Adapter une analyse existante à un jeu de données ouvert différent —> nilearn a seulement 40 participants d’un jeu de données qui a été pre-processed dans le contexte d’un concours. Donc checquer prendre quelle base de données pcq plusieurs initiatives et ensuite faire les analyses du projet initiale 
-
-https://www.nitrc.org/frs/?group_id=383 
 
 ### Tâche 3: Ajouter une visualisation pertinente des résultats
 Avec la nouvelle base de données qui est beaucoup plus grande, 
