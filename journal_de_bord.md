@@ -17,10 +17,10 @@ Inscription au NITRC et exploration des fichiers training set phenotypic et test
 
 
 ## 16 avril – 12h 
-Il y a seulement 30 participants qui ont des données phénotypiques  explique pourquoi le projet initial a juste fait son projet avec 30 participants
+Il y a seulement 30 participants qui ont des données phénotypiques --> explique pourquoi le projet initial a juste fait son projet avec 30 participants
 
-Lorsqu’on vérifie les diagnostics de tdah, il y a 17 contrôles et 13 adhd, par contre dans le projet original c’était l’inverse  à vérifier si l’identification des données a changé 
+Lorsqu’on vérifie les diagnostics de tdah, il y a 17 contrôles et 13 adhd, par contre dans le projet original c’était l’inverse  à vérifier si l’identification des données a changé.
+Même problème avec la distribution de l'âge, ce n'est pas la même chose que le projet original --> peut-être que les données ont étés changées/updater depuis le projet original (à vérifier)
 
-La matrice de corrélation age-adhd ne sert à rien (que les diagonales), ne démontre pas d’informations utile et il va avoir une visualisation avec matrice de corrélation plus tard 
-<img width="432" height="469" alt="image" src="https://github.com/user-attachments/assets/a7a258bf-bf02-4963-af5e-1a60bf1519b2" />
+La matrice de corrélation age-adhd ne sert à rien (que les diagonales), ne démontre pas d’informations utile et il va avoir une visualisation avec matrice de corrélation plus tard.
 
