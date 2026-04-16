@@ -24,3 +24,5 @@ Même problème avec la distribution de l'âge, ce n'est pas la même chose que 
 
 La matrice de corrélation age-adhd ne sert à rien (que les diagonales), ne démontre pas d’informations utile et il va avoir une visualisation avec matrice de corrélation plus tard.
 
+PROBLÈME: ce n'est pas que seulement 30 participants a des données phénotypes mais lorsqu'on fait data.phenotypic() nilearn a un problème et ne va chercher que 30 participants (et ce n'est pas les même 30 participants que le projet initial, ce qui explique la différence dans les distributions d'âge et de tdah entre le projet original et mon projet)
+
