@@ -40,5 +40,11 @@ ConnectivityMeasure:
 - Il y a de l'incohérence dans le projet original. Il initialise une mesure de corrélation qui enlève la diagonale et vectorize = True donc garde seulement le triangle inférieur + flatten puis retourne un array de 1D. Par contre, dans la boucle pour faire la matrice de corrélation pour tous les sujets, on reinitialise la mesure de corrélation sans enlever la diagonale et avec vectorize = False ce qui retourne un array de 2D. L'array de 2D est utiliser pour les visualisations par la suite, mais utiliser ce type d'array donne de l'information qui est redondante pour les modèles de classifications.
 - Pour mon projet, je préfère donc utiliser la mesure de connectivité sans la diagonale et avec seulement le triangle inférieur puisque le but principal de ce projet est les classificateurs. Par contre, je vais utiliser la méthode discard_diagonal = False et vectorize = False pour faire les mêmes visualisations que le projet original (mais cette méthode n'est pas utiliser pour les classificateur)
 
+Ajout de XGBoost dans l'environnement du cours de visualisation pour faire les classifications
+
+Classifacteurs
+- au lieu de faire les classifications dans un autre code, je les ai fait directement dans le même notebook où on a préparer les données afin de ne pas à avoir redownload les données préparées
+- aucune autre modification a été fait au code pour les classifications 
+
 
 
