@@ -131,28 +131,30 @@ Variables pour la validation croisée:
 #### Résultats
 
 **Modèle 2 (40 sujets et nouvelle ConnectivityMeasure)**
-<img width="1500" height="1000" alt="Modele2" src="https://github.com/user-attachments/assets/7bc4ac7f-437f-409b-9f58-2b29d1a9b1f1" />
+<img width="1500" height="1000" alt="Modele2" src="https://github.com/user-attachments/assets/6af03e0e-c35b-4699-a814-4f369c66ef3e" />
 
 
-<img width="1000" height="600" alt="Modele2" src="https://github.com/user-attachments/assets/069b7a4b-bb0e-4dc7-82de-ce68b4e5edc5" />
+<img width="1000" height="600" alt="Modele2" src="https://github.com/user-attachments/assets/b4e8fede-de61-4326-81cd-e970e6792fb2" />
 
 
 **Modèle 3 (40 sujets, nouvelle ConnectivityMeasure et validation croisée)**
 
-<img width="1500" height="1000" alt="Modele3" src="https://github.com/user-attachments/assets/06ad05d2-a18b-4039-b6a8-a8a69669ee28" />
+<img width="1500" height="1000" alt="Modele3" src="https://github.com/user-attachments/assets/3b7e2144-a099-491b-8377-65c8173f736f" />
 
 
-<img width="1000" height="600" alt="Modele3" src="https://github.com/user-attachments/assets/6eb76912-0990-4dc1-bedd-33340a6a3c08" />
+<img width="1000" height="600" alt="Modele3" src="https://github.com/user-attachments/assets/f942a60f-a7d9-49a9-b66a-6f89ce663cad" />
+
 
 
 
 #### Tableau résumé des classificateurs de tous les modèles 
+
 | Classificateurs | Accuracy M1 | F1 M1 | Accuracy M2 | F1 M2 | Accuracy M3 | F1 M3 |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
 | KNN | 0.750 | 0.667 | 0.750 | 0.667 | 0.425 | 0.303 |
 | Logistic Regression | 0.250 | 0.250 | 0.250 | 0.250 | 0.375 | 0.419 |
-| Decision Tree | 0.375 | 0.444 | 0.500 | 0.500 | 0.650 | 0.667 |
-| Random Forest | 0.500 | 0.500 | 0.625 | 0.667 | 0.325 | 0.341 |
+| Decision Tree | 0.375 | 0.444 | 0.375 | 0.444 | 0.650 | 0.667 |
+| Random Forest | 0.500 | 0.500 | 0.250 | 0.400 | 0.475 | 0.432 |
 | SVM | 0.625 | 0.727 | 0.625 | 0.723 | 0.350 | 0.435 |
 | XGBoost | 0.500 | 0.500 | 0.375 | 0.444 | 0.475 | 0.488 |
 
@@ -160,9 +162,12 @@ Variables pour la validation croisée:
 *M1 : Réplication projet original — M2 : Sans redondance des features — 
 M3 : Sans redondance des features avec validation croisée*
 
-Pour le modèle 2, il y a eu une diminution d'accuracy et au F1 score pour le XGBoost et une augmentation d'accuracy et au F1 score pour le Decision Tree et Random Forest. Il semble donc que retirer la redondance des features a des effets variables selon les classificateurs. 
+*M1 : Réplication projet original — M2 : Sans redondance des features — 
+M3 : Sans redondance des features avec validation croisée*
 
-Pour le modèle 3, on voit une diminution globale sur les performances à l'execption d'une du Decision Tree qui a une augmentation. En effet, quand on retire la redondance des features et qu'on ajoute une validation croisée, aucun des classificateurs ont des performances en haut de la chance, mise à part le Decision Tree. Je ne pense pas que cela signifie que cette méthode n'est pas la bonne. Je pense plutôt qu'on a eu de la chance avec le spit des données des modèles 1 et 2 et que les performances au modèle représenteraient des scores moins "gonflés" et qui réflètent mieux la capacité de généralisation des classificateurs. 
+Pour le modèle 2, toutes les performances sont identiques au modèle 2 sauf pour le XGBoost et le RandomForest (diminution d'accuracy et au F1 score). Il semble donc que retirer la redondance des features n'a pas eu beaucoup d'impact sur les performances des classificateurs. 
+
+Pour le modèle 3, on voit une diminution globale sur les performances à l'execption du Decision Tree et du Logistic Regression qui ont une augmentation. En effet, quand on retire la redondance des features et qu'on ajoute une validation croisée, aucun des classificateurs ont des performances en haut de la chance, mise à part le Decision Tree. Je ne pense pas que cela signifie que cette méthode n'est pas la bonne. Je pense plutôt qu'on a eu de la chance avec le spit des données des modèles 1 et que les performances au modèle représenteraient des scores moins "gonflés" et qui réflètent mieux la capacité de généralisation des classificateurs. 
 
 ## Déclaration de l'usage de l'IA
 Ce projet a été assité par l'IA pour: 
