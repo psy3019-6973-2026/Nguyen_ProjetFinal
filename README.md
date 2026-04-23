@@ -70,7 +70,7 @@ Seulement les tâches 1 et 2 seront effectués (des visualisations avec une char
 - Ajout d'un fichier environement yml: étant donné qu'on a déjà utilisé le dataset en classe, j'ai réutilisé l'environnement du cours de visualisation, mais j'ai ajouté xgboost puisqu'il était un classificateur utilisé dans le projet
 - Changer les paths pour l'enregistrement des données et figures: au lieu de le hardcode comme le projet original, j'ai mis des paths relatifs (donc non spécifique à l'ordinateur local) et pour l'enregistrement des figures j'ai utilisé le module os pour créer des fichiers
 
-#### Modifications / problèmes majeurs:**
+#### Modifications / problèmes majeurs:
 
 **Problème avec la fonction datasets.fetch_adhd de nilearn**
 
