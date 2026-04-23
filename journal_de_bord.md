@@ -51,7 +51,7 @@ Classifacteurs
 - le but de la tâche 1 était avant tout de reproduire le notebook existant donc pour celle-ci, je vais finalement conserver la ConnectivityMeasure original (donc sans enlever la diagonale et avec vectorize = False) pour bien reproduire et que la seule différence est le nombre de participants
 - **Tâche 2 Modification de la pipeline d'apprentissage:** Pour cette tâche, je vais modifier la ConnectivityMeasure pour enlever la diagonale et vectorize=True comme ce que je voulais précédemment faire pour voir l'impact sur la performance lorsqu'il y a moins de redondance dans les features. De plus, je vais également ajouter une validation croisée (cross_val_predict).
 
-Publication d'un [issue sur le repo de nilearn]([https://www.example.com](https://github.com/nilearn/nilearn/issues/6190)) pour le problème que data.phenotypic ne montre que 30 sujets au lieu de 40
+Publication d'un [issue sur le repo de nilearn](https://github.com/nilearn/nilearn/issues/6190) pour le problème que data.phenotypic ne montre que 30 sujets au lieu de 40
 
 
 
