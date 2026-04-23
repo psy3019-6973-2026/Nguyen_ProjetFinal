@@ -23,7 +23,7 @@ De plus, le TDAH est un sujet qui m'intéresse puisqu'il m'affecte personnelleme
 
 Dans un système de santé où il semble avoir un manque perpetuel de temps et de ressource, une méthode quantitative robuste et qui serait probablement plus rapide qu'une consultation en neuropsychologie serait intéressante pour complémenter l'application actuelle dans l'évaluation de TDAH. 
 
-## Description des tâches
+## Tâches initialement proposées
 ### Tâche 1: Reproduire le projet intial (notebook) à partir d’un environnement vierge et documenter le processus
 Le projet initial mentionne qu'une de ses limites est la petite taille de sa base de données. Or, seulement 30 des 40 participants disponibles n'ont été utilisé. 
 Je vais donc tenter de refaire le projet, mais avec l'entierté de la base de données.
@@ -59,3 +59,96 @@ Les visualisations exactes seront déterminées après la complétion de la tâc
 
 ### En cas de surcharge de travail global:
 Seulement les tâches 1 et 2 seront effectués (des visualisations avec une charge de travail insuffisante pour être considérée une tâche complète seront quand même incluse dans la tâche 2 afin de visualiser les résultats)
+
+## Tâches réalisées
+Étant donné que la tâche 1 m'a pris plus de temps que prévu (en plus de problème personnel), les tâches 2 et 3 proposées n'ont pas été faits. Par contre, j'ai fait une autre tâche 2 qui était plus simple, soit la modification de la pipeline d'apprentissage.
+
+### Tâche 1: Reproduire le projet intial (notebook) à partir d’un environnement vierge et documenter le processus
+
+#### Modifications mineures:
+- Différences des valeurs de bases de certaines fonctions nilearn, donc j'ai dû apporter certaines modifications afin d'avoir les mêmes visualisations et analyses. Par exemple: valeur de cmap par défaut qui était différent, précision de quelle résolution qu'on veut pour l'atlas (vient aussi avec un changement des keys)
+- Ajout d'un fichier environement yml: étant donné qu'on a déjà utilisé le dataset en classe, j'ai réutilisé l'environnement du cours de visualisation, mais j'ai ajouté xgboost puisqu'il était un classificateur utilisé dans le projet
+- Changer les paths pour l'enregistrement des données et figures: au lieu de le hardcode comme le projet original, j'ai mis des paths relatifs (donc non spécifique à l'ordinateur local) et pour l'enregistrement des figures j'ai utilisé le module os pour créer des fichiers
+
+#### Modifications / problèmes majeurs:**
+
+**Problème avec la fonction datasets.fetch_adhd de nilearn**
+
+Malgré que je précise le nombre de sujets (40), j'arrive à bien download toutes les données phénotypes mais lorsque j'appelle avec la fonction nilearn data.phenotypic on me retourne les données phénotypes que pour 30 participants (ce n'est d'ailleurs pas les mêmes 30 participants que le projet original, une différence observable lorsqu'on regarde les distributions de diagnostics de TDAH et d'âge).
+
+<img width="561" height="456" alt="Capture d’écran, le 2026-04-23 à 02 44 21" src="https://github.com/user-attachments/assets/88de212f-a0e8-4347-be20-ae492a871181" /><img width="561" height="419" alt="Capture d’écran, le 2026-04-23 à 02 44 43" src="https://github.com/user-attachments/assets/be7c5a52-a977-482d-80eb-e0ff4c573fca" />
+
+<img width="848" height="348" alt="Capture d’écran, le 2026-04-23 à 02 45 56" src="https://github.com/user-attachments/assets/460e44be-3aaa-4d4a-90cf-db609984ba4e" />
+<img width="848" height="348" alt="Capture d’écran, le 2026-04-23 à 02 45 42" src="https://github.com/user-attachments/assets/70c34ab4-e122-4c51-8a13-f964789cfb04" />
+
+Pour résoudre le problème, je suis allé manuellement chercher les données phénotypes puisque le download avait bien fonctionné. Par contre, ce problème est quand même important à résoudre pour nilearn, donc j'ai posté un [issue sur leur repo](https://github.com/nilearn/nilearn/issues/6190). J'ai réussi à identifier quel endroit semblait être problématique, mais je n'ai pas trouvé de solution. 
+
+**Problème avec l'initialisation du ConnectivityMeasure**
+
+Voici le code original: 
+<img width="613" height="304" alt="Capture d’écran, le 2026-04-23 à 02 56 38" src="https://github.com/user-attachments/assets/d213f1c1-3c10-48e5-87a9-f4d0ae405684" />
+Le problème est qu'il initialise une mesure de connectivité avec certains critères et ensuite à chaque itération de la boucle, il change les critères de la mesure de connectivité et n'utilise juste pas celle précédemment initialisée.
+
+Personnellement, je préfères la version avec discard_diagonal=True et vectorize=True étant donné qu'on n'a pas besoin de flatten les données (déjà de shape 1D) et ça permet aussi d'avoir moins de redondance dans les informations qu'on donne aux classificateurs.
+
+Puisque l'objectif de la tâche 1 était de reproduire le notebook original, j'ai utilisé la version dans la boucle puisque c'est celle qui a été utilisé sur ses données, mais ma préférence pour l'autre a mené à la tâche 2 afin de pouvoir comparer si les paramètres de ConnectivityMeasure vont avoir un impact sur la performance des classificateurs (additionnellement, une comparaison entre la méthode d'entraînement précédemment utilisée sera aussi comparée avec une méthode de validation croisée à la tâche 2)
+
+#### Comparaisons des résultats
+
+**Modèle original (30 sujets)**
+<img width="1500" height="1000" alt="confusion_matrices" src="https://github.com/user-attachments/assets/51308e43-655a-4cc6-80fc-32681be1b836" />
+
+**Modèle 1 (40 sujets et ConnectivityMeasure original)**
+<img width="1500" height="1000" alt="Modele1" src="https://github.com/user-attachments/assets/150460cf-4a0c-414e-9476-aa0b8914860d" />
+
+**Modèle original**
+<img width="1000" height="600" alt="classifier_performance_comparison" src="https://github.com/user-attachments/assets/943312c2-31c6-4621-86c8-4cf349483b24" />
+
+**Modèle 1**
+<img width="1000" height="600" alt="Modele1" src="https://github.com/user-attachments/assets/73f0e574-ef31-4e15-a213-77e0eff21611" />
+
+### Tâche 2: Modification du pipeline d'apprentissage
+
+#### Résultats
+
+**Modèle 2 (40 sujets et nouvelle ConnectivityMeasure)**
+
+<img width="1500" height="1000" alt="Modele2" src="https://github.com/user-attachments/assets/c404f084-6a05-4bdb-8ff1-05bfdbe95e7a" />
+
+<img width="1000" height="600" alt="Modele2" src="https://github.com/user-attachments/assets/d168c1c8-1790-4281-bf8c-ac06b544529b" />
+
+
+**Modèle 3 (40 sujets, nouvelle ConnectivityMeasure et validation croisée)**
+
+<img width="1500" height="1000" alt="Modele3" src="https://github.com/user-attachments/assets/66e67b28-0cd2-474e-8811-17e84335c3b6" />
+
+<img width="1000" height="600" alt="Modele3" src="https://github.com/user-attachments/assets/a2d0d326-e28a-46b4-96e5-ede933adf9e4" />
+
+
+#### Tableau résumé des classificateurs de tous les modèles 
+| Classificateurs | Accuracy M1 | F1 M1 | Accuracy M2 | F1 M2 | Accuracy M3 | F1 M3 |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| KNN | 0.750 | 0.667 | 0.750 | 0.667 | 0.425 | 0.303 |
+| Logistic Regression | 0.250 | 0.250 | 0.250 | 0.250 | 0.375 | 0.419 |
+| Decision Tree | 0.375 | 0.444 | 0.375 | 0.444 | 0.500 | 0.444 |
+| Random Forest | 0.625 | 0.667 | 0.625 | 0.444 | 0.450 | 0.476 |
+| SVM | 0.625 | 0.727 | 0.625 | 0.727 | 0.350 | 0.435 |
+| XGBoost | 0.500 | 0.500 | 0.375 | 0.444 | 0.475 | 0.488 |
+
+
+*M1 : Réplication projet original — M2 : Sans redondance des features — 
+M3 : Sans redondance des features avec validation croisée*
+
+## Déclaration de l'usage de l'IA
+Ce projet a été assité par l'IA pour: 
+- debug lorsque cela me prenait trop de temps par moi-même/en lisant la documentation nilearn (ex. trouver qu'elle cmpa étati utilisé dans les figures originales)
+- aider la compréhension
+
+
+
+
+
+
+
+
+
