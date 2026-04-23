@@ -99,33 +99,51 @@ Puisque l'objectif de la tâche 1 était de reproduire le notebook original, j'a
 <img width="1500" height="1000" alt="confusion_matrices" src="https://github.com/user-attachments/assets/51308e43-655a-4cc6-80fc-32681be1b836" />
 
 **Modèle 1 (40 sujets et ConnectivityMeasure original)**
-<img width="1500" height="1000" alt="Modele1" src="https://github.com/user-attachments/assets/150460cf-4a0c-414e-9476-aa0b8914860d" />
+<img width="1500" height="1000" alt="Modele1" src="https://github.com/user-attachments/assets/3e876a66-7631-41e8-b00e-e9de42c2730b" />
+
 
 **Modèle original**
 <img width="1000" height="600" alt="classifier_performance_comparison" src="https://github.com/user-attachments/assets/943312c2-31c6-4621-86c8-4cf349483b24" />
 
 **Modèle 1**
-<img width="1000" height="600" alt="Modele1" src="https://github.com/user-attachments/assets/73f0e574-ef31-4e15-a213-77e0eff21611" />
+<img width="1000" height="600" alt="Modele1" src="https://github.com/user-attachments/assets/044699e3-6b01-4ec2-81c6-69e8cd12cea2" />
 
-# AJOUTER LE TEXTE QUI PARLE DES DIFFÉRENCES
+
+Pour le modèle 1, le meilleur classificateur en terme d'accuracy est le KNN (0.75) et le meilleur en terme du F1 score est le SVM (0.73). Tous les autres classificateurs ont une performance moins ou égale à de la chance.
+
+Entre le modèle original et le modèle 1, il y a une baisse notable de la performance du logistic regression, du decision Tree et du Random Forest. Par contre, le modèle montre une augmentation dans les deux scores de performance du KNN et du XGBoost ainsi que dans le F1 score du SVM.
+
+En comparant les matrices de confusions entre les modèles, il semble que globalement les classificateurs du modèle 1 a un peu moins de biais à presque systématiquement prédire que le sujet a un TDAH.
+
+Cependant, il faut se rappeler que, globalement, les classificateurs restent quand même assez mauvais. 
+
 
 ### Tâche 2: Modification du pipeline d'apprentissage
-# TEXTE EXPLICATIF À AJOUTER
+
+Comme expliquée plus tôt, j'ai voulu testé l'effet d'avoir moins de redondance dans les données qu'on donnait aux classificateurs soit d'enlever la diagonale et le triangle inférieur de la matrice de corréalation ce qui donne au final moins de features mais aucun doublons. Donc pour le modèle 2, la seule modification que j'ai apporté est que la mesure de connectivité = ConnectivityMeasure(kind='correlation', vectorize=True, discard_diagonal=True, standardize='zscore_sample'). 
+
+Ensuite, étant donné qu'un échantillon de 40 sujets reste tout de même petit, je me suis demandé si nos précédents résultats sont biaisés par comment ceux-ci sont diviser. J'ai ainsi ajouter dans le pipeline d'apprentissage une validation croisée pour le modèle 3 (pour ce modèle j'ai également conservé le mesure de connectivité du modèle 2)
+
+Variables pour la validation croisée:
+- cross_val = StratifiedKFold(n_splits=5, shuffle=True, random_state=123)
+- y_pred = cross_val_predict(clf, X, y, cv=cross_val)
 
 #### Résultats
 
 **Modèle 2 (40 sujets et nouvelle ConnectivityMeasure)**
+<img width="1500" height="1000" alt="Modele2" src="https://github.com/user-attachments/assets/7bc4ac7f-437f-409b-9f58-2b29d1a9b1f1" />
 
-<img width="1500" height="1000" alt="Modele2" src="https://github.com/user-attachments/assets/c404f084-6a05-4bdb-8ff1-05bfdbe95e7a" />
 
-<img width="1000" height="600" alt="Modele2" src="https://github.com/user-attachments/assets/d168c1c8-1790-4281-bf8c-ac06b544529b" />
+<img width="1000" height="600" alt="Modele2" src="https://github.com/user-attachments/assets/069b7a4b-bb0e-4dc7-82de-ce68b4e5edc5" />
 
 
 **Modèle 3 (40 sujets, nouvelle ConnectivityMeasure et validation croisée)**
 
-<img width="1500" height="1000" alt="Modele3" src="https://github.com/user-attachments/assets/66e67b28-0cd2-474e-8811-17e84335c3b6" />
+<img width="1500" height="1000" alt="Modele3" src="https://github.com/user-attachments/assets/06ad05d2-a18b-4039-b6a8-a8a69669ee28" />
 
-<img width="1000" height="600" alt="Modele3" src="https://github.com/user-attachments/assets/a2d0d326-e28a-46b4-96e5-ede933adf9e4" />
+
+<img width="1000" height="600" alt="Modele3" src="https://github.com/user-attachments/assets/6eb76912-0990-4dc1-bedd-33340a6a3c08" />
+
 
 
 #### Tableau résumé des classificateurs de tous les modèles 
@@ -133,16 +151,18 @@ Puisque l'objectif de la tâche 1 était de reproduire le notebook original, j'a
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
 | KNN | 0.750 | 0.667 | 0.750 | 0.667 | 0.425 | 0.303 |
 | Logistic Regression | 0.250 | 0.250 | 0.250 | 0.250 | 0.375 | 0.419 |
-| Decision Tree | 0.375 | 0.444 | 0.375 | 0.444 | 0.500 | 0.444 |
-| Random Forest | 0.625 | 0.667 | 0.625 | 0.444 | 0.450 | 0.476 |
-| SVM | 0.625 | 0.727 | 0.625 | 0.727 | 0.350 | 0.435 |
+| Decision Tree | 0.375 | 0.444 | 0.500 | 0.500 | 0.650 | 0.667 |
+| Random Forest | 0.500 | 0.500 | 0.625 | 0.667 | 0.325 | 0.341 |
+| SVM | 0.625 | 0.727 | 0.625 | 0.723 | 0.350 | 0.435 |
 | XGBoost | 0.500 | 0.500 | 0.375 | 0.444 | 0.475 | 0.488 |
 
 
 *M1 : Réplication projet original — M2 : Sans redondance des features — 
 M3 : Sans redondance des features avec validation croisée*
 
-# TEXTE SUR LES DIFFÉRENCES ET INTERPRÉTATIONS DES DIFFÉRENCES
+Pour le modèle 2, il y a eu une diminution d'accuracy et au F1 score pour le XGBoost et une augmentation d'accuracy et au F1 score pour le Decision Tree et Random Forest. Il semble donc que retirer la redondance des features a des effets variables selon les classificateurs. 
+
+Pour le modèle 3, on voit une diminution globale sur les performances à l'execption d'une du Decision Tree qui a une augmentation. En effet, quand on retire la redondance des features et qu'on ajoute une validation croisée, aucun des classificateurs ont des performances en haut de la chance, mise à part le Decision Tree. Je ne pense pas que cela signifie que cette méthode n'est pas la bonne. Je pense plutôt qu'on a eu de la chance avec le spit des données des modèles 1 et 2 et que les performances au modèle représenteraient des scores moins "gonflés" et qui réflètent mieux la capacité de généralisation des classificateurs. 
 
 ## Déclaration de l'usage de l'IA
 Ce projet a été assité par l'IA pour: 
