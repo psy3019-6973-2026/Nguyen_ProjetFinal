@@ -162,10 +162,8 @@ Variables pour la validation croisée:
 *M1 : Réplication projet original — M2 : Sans redondance des features — 
 M3 : Sans redondance des features avec validation croisée*
 
-*M1 : Réplication projet original — M2 : Sans redondance des features — 
-M3 : Sans redondance des features avec validation croisée*
 
-Pour le modèle 2, toutes les performances sont identiques au modèle 2 sauf pour le XGBoost et le RandomForest (diminution d'accuracy et au F1 score). Il semble donc que retirer la redondance des features n'a pas eu beaucoup d'impact sur les performances des classificateurs. 
+Pour le modèle 2, toutes les performances sont identiques au modèle 1 sauf pour le XGBoost et le RandomForest (diminution d'accuracy et au F1 score). Il semble donc que retirer la redondance des features n'a pas eu beaucoup d'impact sur les performances des classificateurs. 
 
 Pour le modèle 3, on voit une diminution globale sur les performances à l'execption du Decision Tree et du Logistic Regression qui ont une augmentation. En effet, quand on retire la redondance des features et qu'on ajoute une validation croisée, aucun des classificateurs ont des performances en haut de la chance, mise à part le Decision Tree. Je ne pense pas que cela signifie que cette méthode n'est pas la bonne. Je pense plutôt qu'on a eu de la chance avec le spit des données des modèles 1 et que les performances au modèle représenteraient des scores moins "gonflés" et qui réflètent mieux la capacité de généralisation des classificateurs. 
 
