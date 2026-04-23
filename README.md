@@ -107,7 +107,10 @@ Puisque l'objectif de la tâche 1 était de reproduire le notebook original, j'a
 **Modèle 1**
 <img width="1000" height="600" alt="Modele1" src="https://github.com/user-attachments/assets/73f0e574-ef31-4e15-a213-77e0eff21611" />
 
+# AJOUTER LE TEXTE QUI PARLE DES DIFFÉRENCES
+
 ### Tâche 2: Modification du pipeline d'apprentissage
+# TEXTE EXPLICATIF À AJOUTER
 
 #### Résultats
 
@@ -138,6 +141,8 @@ Puisque l'objectif de la tâche 1 était de reproduire le notebook original, j'a
 
 *M1 : Réplication projet original — M2 : Sans redondance des features — 
 M3 : Sans redondance des features avec validation croisée*
+
+# TEXTE SUR LES DIFFÉRENCES ET INTERPRÉTATIONS DES DIFFÉRENCES
 
 ## Déclaration de l'usage de l'IA
 Ce projet a été assité par l'IA pour: 
